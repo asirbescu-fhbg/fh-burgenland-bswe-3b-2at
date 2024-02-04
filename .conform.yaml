@@ -21,7 +21,10 @@ policies:
           - chore
           - test
           - docs
-          - no_type
+          - feat
+          - fix
+          - build
+          - style
         scopes:
           - release
           - deps
@@ -29,4 +32,5 @@ policies:
           - person
           - note
           - tests
+          - git
         descriptionLength: 100
