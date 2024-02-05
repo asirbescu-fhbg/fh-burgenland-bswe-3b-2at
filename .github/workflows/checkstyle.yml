@@ -1,0 +1,17 @@
+name: Checkstyle
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+    
+jobs:
+  checkstyle:
+    name: Run checkstyle
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4
+        - run: gradlew check
