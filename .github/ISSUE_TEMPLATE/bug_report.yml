@@ -1,0 +1,75 @@
+---
+name: Bug report
+description: File a bug report.
+title: "[Bug] "
+labels: "bug"
+assignees:
+  - asirbescu-fhbg
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to file a bug report!
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Tell us what the bug is. Please write a clear and concise description.
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: Which severity does this bug have?
+      options:
+        - S1 - Critical Bug
+        - S2 - Major Bug
+        - S3 - Minor Bug
+        - S4 - Design Bug
+      default: 2
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Which priority does this bug have?
+      options:
+        - P1 - High
+        - P2 - Medium
+        - P3 - Low
+      default: 2
+    validations:
+      required: true
+  - type: textarea
+    id: to-reproduce
+    attributes:
+      label: To Reproduce
+      description: How can we reproduce the bug?
+      placeholder: Please enter the steps necessary for reproduction, as well
+        as any environmental information (e.g. OS, project version, etc.)
+    validations:
+      required: false
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Which behaviour did you expect / actually occur?
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Please add any screenshots for easier understanding of the
+        bug.
+    validations:
+      required: false
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: Additional Information
+      description: Let us know any additional information.
+    validations:
+      required: false
