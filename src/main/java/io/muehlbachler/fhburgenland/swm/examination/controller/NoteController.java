@@ -23,11 +23,32 @@ public class NoteController {
     @Autowired
     private NoteService noteService;
 
+    /**
+     * Retrieves a Note entity using its unique identifier.
+     * @param id The unique string identifier of the Note entity to
+     *           retrieve. Must not be null.
+     * @return ResponseEntity containing the Note entity with HTTP status 200
+     *         if found or an empty ResponseEntity with HTTP status 404 if
+     *         no Note is found with the specified ID.
+     * @throws IllegalArgumentException if the provided ID is null.
+     * @see Note
+     * @see NoteService
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Note> get(@PathVariable String id) {
         return ResponseEntity.of(noteService.get(id));
     }
 
+    /**
+     * Retrieves a list of note entities whose content contains the query.
+     * @param query The string for which the content is checked.
+     * @return List of notes whose content matches the query or an empty
+     *         list if no notes whose content matches the query are found or
+     *         the query is null. Returns a list with all notes if the query is
+     *         empty.
+     * @see Note
+     * @see NoteService
+     */
     @GetMapping("/query")
     public List<Note> query(@RequestParam("query") String query) {
         return noteService.queryByContent(query);
