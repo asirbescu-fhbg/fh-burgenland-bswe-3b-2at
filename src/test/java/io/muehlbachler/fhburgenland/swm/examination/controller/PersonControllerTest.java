@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 
 import io.muehlbachler.fhburgenland.swm.examination.model.Person;
 
+/**
+ * Test class for {@code PersonController}
+ */
 @SpringBootTest
 public class PersonControllerTest {
     @Autowired

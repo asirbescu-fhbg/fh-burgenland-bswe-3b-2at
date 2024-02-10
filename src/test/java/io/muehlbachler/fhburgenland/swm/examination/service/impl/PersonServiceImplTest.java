@@ -2,7 +2,6 @@ package io.muehlbachler.fhburgenland.swm.examination.service.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.times;
 
 import java.util.Optional;
@@ -21,6 +20,9 @@ import io.muehlbachler.fhburgenland.swm.examination.repository.PersonRepository;
 import io.muehlbachler.fhburgenland.swm.examination.service.NoteService;
 import io.muehlbachler.fhburgenland.swm.examination.service.PersonService;
 
+/**
+ * Test class for {@code PersonServiceImpl}
+ */
 @ExtendWith(MockitoExtension.class)
 public class PersonServiceImplTest {
     @Mock

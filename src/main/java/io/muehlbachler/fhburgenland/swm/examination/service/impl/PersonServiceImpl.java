@@ -16,6 +16,9 @@ import io.muehlbachler.fhburgenland.swm.examination.service.PersonService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+/**
+ * Implements the methods from {@link PersonService}.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Service
@@ -26,6 +29,8 @@ public class PersonServiceImpl implements PersonService {
     private NoteService noteService;
 
     /**
+     * Retrieves a list of all Person entities.
+     *
      * @see PersonService#getAll()
      */
     public List<Person> getAll() {
@@ -33,6 +38,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     /**
+     * Retrieves a Person entity using its unique identifier.
+     *
      * @see PersonService#get(String) 
      */
     public Optional<Person> get(String id) {
@@ -40,6 +47,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     /**
+     * Creates a new Person using the Person object.
+     *
      * @see PersonService#create(Person) 
      */
     @Override
@@ -48,6 +57,9 @@ public class PersonServiceImpl implements PersonService {
     }
 
     /**
+     * Retrieves a list of all Person entities whose firstname and lastname
+     * match the given parameters.
+     *
      * @see PersonService#findByName(String, String) 
      */
     @Override
@@ -61,6 +73,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     /**
+     * Creates a Note for a Person with the specified ID.
+     *
      * @see PersonService#createNote(String, Note) 
      */
     @Override

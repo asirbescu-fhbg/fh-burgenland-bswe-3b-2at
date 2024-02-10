@@ -2,16 +2,19 @@ package io.muehlbachler.fhburgenland.swm.examination.repository;
 
 import java.util.List;
 
-import io.muehlbachler.fhburgenland.swm.examination.service.NoteService;
 import org.springframework.data.repository.CrudRepository;
 
 import io.muehlbachler.fhburgenland.swm.examination.model.Note;
 
+/**
+ * Repository for managing CRUD operations on Note entities.
+ */
 public interface NoteRepository extends CrudRepository<Note, String> {
 
     /**
      * Retrieves a list of Note entities whose content contains the provided
      * content.
+     *
      * @param content The string for which the content is checked.
      * @return List of Notes whose content matches the provided content or an
      *         empty list if no Notes whose content matches the provided

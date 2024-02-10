@@ -2,7 +2,6 @@ package io.muehlbachler.fhburgenland.swm.examination.controller;
 
 import java.util.List;
 
-import io.muehlbachler.fhburgenland.swm.examination.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +16,9 @@ import io.muehlbachler.fhburgenland.swm.examination.model.Note;
 import io.muehlbachler.fhburgenland.swm.examination.model.Person;
 import io.muehlbachler.fhburgenland.swm.examination.service.PersonService;
 
+/**
+ * Handles incoming HTTP requests related to persons.
+ */
 @RestController
 @RequestMapping("person")
 public class PersonController {
@@ -25,6 +27,7 @@ public class PersonController {
 
     /**
      * Retrieves a list of all Person entities.
+     *
      * @return A list of all stored Person entities or an empty list if no
      *         entities are stored.
      * @see Person
@@ -37,6 +40,7 @@ public class PersonController {
 
     /**
      * Retrieves a Person entity using its unique identifier.
+     *
      * @param id The unique string identifier of the Person entity to
      *           retrieve. Must not be null.
      * @return ResponseEntity containing the Person entity with HTTP status 200
@@ -53,6 +57,7 @@ public class PersonController {
 
     /**
      * Creates a new Person using the Person object.
+     *
      * @param person The Person object to be created, which contains the
      *               information that is not generated automatically. Must
      *               not be null or incomplete.
@@ -69,6 +74,7 @@ public class PersonController {
     /**
      * Retrieves a list of all Person entities whose firstname and lastname
      * match the given parameters.
+     *
      * @param firstName The string representing the first name to search for.
      *                  Must not be null. If it is empty, only the last name
      *                  will be searched for.
@@ -81,12 +87,14 @@ public class PersonController {
      * @see PersonService
      */
     @GetMapping("/query")
-    public List<Person> query(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) {
+    public List<Person> query(@RequestParam("firstName") String firstName,
+                              @RequestParam("lastName") String lastName) {
         return personService.findByName(firstName, lastName);
     }
 
     /**
      * Creates a Note for a Person with the specified ID.
+     *
      * @param id The unique string identifier of the Person entity for which
      *           the Note is to be created. Must not be null.
      * @param note The Note object to be created, which contains the

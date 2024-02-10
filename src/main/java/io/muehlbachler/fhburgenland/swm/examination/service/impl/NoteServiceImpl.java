@@ -12,6 +12,9 @@ import io.muehlbachler.fhburgenland.swm.examination.service.NoteService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+/**
+ * Implements the methods from {@link NoteService}.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Service
@@ -20,6 +23,8 @@ public class NoteServiceImpl implements NoteService {
     private NoteRepository noteRepository;
 
     /**
+     * Retrieves a Note entity using its unique identifier.
+     *
      * @see NoteService#get(String) 
      */
     @Override
@@ -28,6 +33,8 @@ public class NoteServiceImpl implements NoteService {
     }
 
     /**
+     * Creates a new Note entity using the provided Note object.
+     *
      * @see NoteService#create(Note) 
      */
     @Override
@@ -36,6 +43,8 @@ public class NoteServiceImpl implements NoteService {
     }
 
     /**
+     * Retrieves a list of Note entities whose content contains the query.
+     *
      * @see NoteService#queryByContent(String) 
      */
     @Override

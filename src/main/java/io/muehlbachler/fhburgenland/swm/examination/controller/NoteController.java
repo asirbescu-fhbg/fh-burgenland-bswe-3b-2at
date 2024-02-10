@@ -6,17 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.muehlbachler.fhburgenland.swm.examination.model.Note;
-import io.muehlbachler.fhburgenland.swm.examination.model.Person;
 import io.muehlbachler.fhburgenland.swm.examination.service.NoteService;
-import io.muehlbachler.fhburgenland.swm.examination.service.PersonService;
 
+/**
+ * Handles incoming HTTP requests related to notes.
+ */
 @RestController
 @RequestMapping("note")
 public class NoteController {
@@ -25,6 +24,7 @@ public class NoteController {
 
     /**
      * Retrieves a Note entity using its unique identifier.
+     *
      * @param id The unique string identifier of the Note entity to
      *           retrieve. Must not be null.
      * @return ResponseEntity containing the Note entity with HTTP status 200
@@ -41,6 +41,7 @@ public class NoteController {
 
     /**
      * Retrieves a list of note entities whose content contains the query.
+     *
      * @param query The string for which the content is checked.
      * @return List of notes whose content matches the query or an empty
      *         list if no notes whose content matches the query are found or

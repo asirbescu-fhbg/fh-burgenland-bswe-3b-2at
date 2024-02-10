@@ -15,6 +15,9 @@ import lombok.Setter;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 
+/**
+ * Represents a Person entity.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

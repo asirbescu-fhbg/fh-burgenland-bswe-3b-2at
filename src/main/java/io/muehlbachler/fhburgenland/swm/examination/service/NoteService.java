@@ -4,12 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import io.muehlbachler.fhburgenland.swm.examination.model.Note;
-import io.muehlbachler.fhburgenland.swm.examination.model.Person;
 
+/**
+ * Service interface for managing CRUD operations on Note entities.
+ */
 public interface NoteService {
 
     /**
      * Retrieves a Note entity using its unique identifier.
+     *
      * @param id The unique string identifier of the Note entity to
      *           retrieve. Must not be null.
      * @return Optional containing the Note entity if found or
@@ -21,6 +24,7 @@ public interface NoteService {
 
     /**
      * Creates a new Note entity using the provided Note object.
+     *
      * @param note The Note object to be created. Must not be null or
      *             incomplete.
      * @return The created Note entity.
@@ -30,6 +34,7 @@ public interface NoteService {
 
     /**
      * Retrieves a list of Note entities whose content contains the query.
+     *
      * @param query The string for which the content is checked.
      * @return List of Note entities whose content matches the query or
      *         an empty list if no Note entities whose content matches the

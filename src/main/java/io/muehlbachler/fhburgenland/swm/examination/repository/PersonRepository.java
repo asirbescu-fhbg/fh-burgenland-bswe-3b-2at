@@ -6,11 +6,15 @@ import org.springframework.data.repository.CrudRepository;
 
 import io.muehlbachler.fhburgenland.swm.examination.model.Person;
 
+/**
+ * Repository for managing CRUD operations on Person entities.
+ */
 public interface PersonRepository extends CrudRepository<Person, String> {
 
     /**
      * Retrieves a list of Person entities whose first name matches the given
      * first name (case-sensitive).
+     *
      * @param firstName The string for which the first name is checked.
      * @return List of Person entities whose first name matches the provided
      *         first name or an empty list if no Person entities whose first
@@ -23,6 +27,7 @@ public interface PersonRepository extends CrudRepository<Person, String> {
     /**
      * Retrieves a list of Person entities whose last name matches the given
      * last name (case-sensitive).
+     *
      * @param lastName The string for which the last name is checked.
      * @return List of Person entities whose last name matches the provided
      *         last name or an empty list if no Person entities whose last
@@ -35,6 +40,7 @@ public interface PersonRepository extends CrudRepository<Person, String> {
     /**
      * Retrieves a list of Person entities whose first and last name matches
      * the given parameters (case-sensitive).
+     *
      * @param firstName The string for which the first name is checked.
      * @param lastName The string for which the last name is checked.
      * @return List of Person entities whose first and last name matches the
