@@ -25,19 +25,31 @@ public class PersonServiceImpl implements PersonService {
     @Autowired
     private NoteService noteService;
 
+    /**
+     * @see PersonService#getAll()
+     */
     public List<Person> getAll() {
         return Lists.newArrayList(personRepository.findAll());
     }
 
+    /**
+     * @see PersonService#get(String) 
+     */
     public Optional<Person> get(String id) {
         return personRepository.findById(id);
     }
 
+    /**
+     * @see PersonService#create(Person) 
+     */
     @Override
     public Person create(Person person) {
         return personRepository.save(person);
     }
 
+    /**
+     * @see PersonService#findByName(String, String) 
+     */
     @Override
     public List<Person> findByName(String firstName, String lastName) {
         if (firstName.isEmpty() && !lastName.isEmpty()) {
@@ -48,6 +60,9 @@ public class PersonServiceImpl implements PersonService {
         return Lists.newArrayList();
     }
 
+    /**
+     * @see PersonService#createNote(String, Note) 
+     */
     @Override
     public Optional<Note> createNote(String personId, Note note) {
         return get(personId).map((Person person) -> {
