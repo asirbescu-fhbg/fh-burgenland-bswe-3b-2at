@@ -19,16 +19,25 @@ public class NoteServiceImpl implements NoteService {
     @Autowired
     private NoteRepository noteRepository;
 
+    /**
+     * @see NoteService#get(String) 
+     */
     @Override
     public Optional<Note> get(String id) {
         return noteRepository.findById(id);
     }
 
+    /**
+     * @see NoteService#create(Note) 
+     */
     @Override
     public Note create(Note note) {
         return noteRepository.save(note);
     }
 
+    /**
+     * @see NoteService#queryByContent(String) 
+     */
     @Override
     public List<Note> queryByContent(String query) {
         return noteRepository.findByContentContaining(query);
