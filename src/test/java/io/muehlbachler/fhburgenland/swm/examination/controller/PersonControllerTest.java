@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import io.muehlbachler.fhburgenland.swm.examination.model.Person;
 
 /**
- * Test class for {@code PersonController}
+ * Test class for {@code PersonController}.
  */
 @SpringBootTest
 public class PersonControllerTest {
@@ -19,7 +19,8 @@ public class PersonControllerTest {
 
     @Test
     void testGetById() {
-        ResponseEntity<Person> person = personController.get("81150016-8501-4b97-9168-01113e21d8a5");
+        ResponseEntity<Person> person =
+                personController.get("81150016-8501-4b97-9168-01113e21d8a5");
 
         assertEquals(HttpStatus.OK, person.getStatusCode(), "person should be found");
         assertEquals("John", person.getBody().getFirstName(), "firstName should be John");

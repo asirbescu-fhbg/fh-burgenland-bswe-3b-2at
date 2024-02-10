@@ -21,7 +21,7 @@ import io.muehlbachler.fhburgenland.swm.examination.service.NoteService;
 import io.muehlbachler.fhburgenland.swm.examination.service.PersonService;
 
 /**
- * Test class for {@code PersonServiceImpl}
+ * Test class for {@code PersonServiceImpl}.
  */
 @ExtendWith(MockitoExtension.class)
 public class PersonServiceImplTest {
