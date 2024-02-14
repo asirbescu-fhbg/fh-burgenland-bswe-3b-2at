@@ -34,3 +34,7 @@ jobs:
         - name: Run unit tests
           if: ${{ success() }}
           run: ./gradlew test
+
+        - name: Build Jar file
+          if: ${{ success() }}
+          run: ./gradlew bootJar
