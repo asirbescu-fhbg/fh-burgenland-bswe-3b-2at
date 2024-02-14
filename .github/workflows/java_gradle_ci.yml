@@ -38,3 +38,9 @@ jobs:
         - name: Build Jar file
           if: ${{ success() }}
           run: ./gradlew bootJar
+
+        - name: Upload artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: examination
+            path: build/libs/*.jar
