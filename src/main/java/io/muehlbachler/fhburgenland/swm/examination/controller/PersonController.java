@@ -46,7 +46,7 @@ public class PersonController {
      * @return ResponseEntity containing the Person entity with HTTP status 200
      *         if found or an empty ResponseEntity with HTTP status 404 if
      *         no Note is found with the specified ID.
-     * @throws IllegalArgumentException if the provided ID is null.
+     * @throws RuntimeException if the provided ID is null.
      * @see Person
      * @see PersonService
      */
@@ -62,7 +62,7 @@ public class PersonController {
      *               information that is not generated automatically. Must
      *               not be null or incomplete.
      * @return The created Person object.
-     * @throws IllegalArgumentException if the provided Person is null.
+     * @throws RuntimeException if the provided Person is null.
      * @see Person
      * @see PersonService
      */

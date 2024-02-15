@@ -30,7 +30,7 @@ public class NoteController {
      * @return ResponseEntity containing the Note entity with HTTP status 200
      *         if found or an empty ResponseEntity with HTTP status 404 if
      *         no Note is found with the specified ID.
-     * @throws IllegalArgumentException if the provided ID is null.
+     * @throws RuntimeException if the provided ID is null.
      * @see Note
      * @see NoteService
      */
