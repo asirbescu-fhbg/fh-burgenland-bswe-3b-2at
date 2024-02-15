@@ -1,0 +1,132 @@
+openapi: 3.1.0
+info:
+  title: Examination
+  version: 1.0.0
+  description: An OpenAPI specification for the Examination REST API 
+                (specifically the Person endpoints)
+servers:
+  - url: https://localhost:8080/
+
+paths:
+  /person:
+    get:
+      description: Returns a list of all persons stored in the database
+      responses:
+        200:
+          description: OK - Successfully returned a list of persons
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/person'
+
+    post:
+      description: Creates a new person and stores it in the database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/person'
+      responses:
+        200:
+          description: OK - Successfully created a new person
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/person'
+
+  /person/{id}:
+    get:
+      description: Gets a person from the database with the specified unique identifier
+      parameters:
+        - name: id
+          in: path
+          description: The unique identifier of the person to retrieve
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK - Successfully returned a found person
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/person'
+
+  /person/query:
+    get:
+      description: Gets a list of persons from the database whose firstname 
+                    and lastname match the query parameters
+      parameters:
+        - in: query
+          name: firstname
+          description: The first name to search for
+          required: true
+          schema:
+            type: string
+          allowEmptyValue: true
+        - in: query
+          name: lastname
+          description: The last name to search for
+          required: true
+          schema:
+            type: string
+          allowEmptyValue: true
+      responses:
+        200:
+          description: OK - Successfully returned a list of persons whose firstname
+                        and lastname match the query parameters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/person'
+
+  /person/{id}/note:
+    post:
+      description: Creates a note for a person with the specified id
+      parameters:
+        - name: id
+          in: path
+          description: The unique identifier of the person to create a note for
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description:
+            description: OK - Successfully returned a created note
+            content:
+              application/json:
+                schema:
+                  $ref: '#components/schemas/note'
+
+components:
+  schemas:
+    person:
+      type: object
+      properties:
+        id:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        notes:
+          type: array
+          items:
+            string
+
+    note:
+      type: array
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        person:
+          type: object
+          $ref: '#/components/schemas/person'
