@@ -4,6 +4,7 @@ import io.muehlbachler.fhburgenland.swm.examination.model.Note;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -66,6 +67,13 @@ public class PersonControllerTest {
 
         Assertions.assertEquals(HttpStatus.NOT_FOUND, actual.getStatusCode());
         Assertions.assertNull(actual.getBody());
+    }
+
+    @Test
+    void testCreatePersonNullThrowsException() {
+        Assertions.assertThrows(
+                InvalidDataAccessApiUsageException.class,
+                () -> personController.create(null));
     }
 
 
